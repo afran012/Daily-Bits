@@ -1,7 +1,7 @@
 import { urluno } from "../helpers/url";
-
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import '../styleds/style.css'
 
 export const PreguntasHTML = () => {
     const [datos, setDatos] = useState([]);
