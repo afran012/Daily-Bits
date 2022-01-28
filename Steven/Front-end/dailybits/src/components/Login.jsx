@@ -8,34 +8,30 @@ const Login = () => {
   const { datos, handleSubmit, handleInputChange, verifyUser } = useLogin()
   let Navigate = useNavigate();
 
-  let usuario = JSON.parse(sessionStorage.getItem('user'));
-
-  const HandleUser = () => {
-    Navigate('/Preguntas', {
-        replace: true
-    })
-
-  }
-
-  if (usuario) {
-      console.log("usuario");
-      HandleUser()
-  }
-
 
 
   const HandleLogin = async () => {
       let validate = await verifyUser()
       console.log(validate)
     if (validate) {
-        Navigate('/Preguntas', {
+        Navigate('/AppUser', {
             replace: true
         })
     }
     else{
+        alert(`clave incorrecta`)
         console.log("clave incorrecta")
     }
   }
+
+
+
+  const HandleRegistrar = async () => {
+    Navigate('/App', {
+        replace: true
+    })
+
+}
 
   return (
     <div>
@@ -50,7 +46,10 @@ const Login = () => {
             <Form.Control type="password" placeholder="Ingrese su contraseña" value={datos.password} onChange={handleInputChange} name="password" />
         </Form.Group>
         <Button variant="primary" type="submit" onClick={HandleLogin}>
-            Enviar
+            Autenticar
+        </Button>
+        <Button variant="secundary" type="button" onClick={HandleRegistrar}>
+            Registrar
         </Button>
     </Form>
 </div>
