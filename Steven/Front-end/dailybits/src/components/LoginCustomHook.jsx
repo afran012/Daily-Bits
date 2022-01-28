@@ -40,13 +40,16 @@ export const useLogin = () => {
 
     const  verifyUser = async () => {
         let usuarios =  await getData()
-        console.log(datos.email,usuarios[0].email )
+        console.log(usuarios)
         let usuarioVal = usuarios.find(user => user.email === datos.email)
-        console.log(usuarioVal.password)
         if (usuarioVal) {
+            console.log(usuarioVal.password)
             if (usuarioVal.password == datos.password) {
-                return true
+                sessionStorage.setItem("user",JSON.stringify(datos));
                 
+                return true
+
+
             }
             else {
                 return false

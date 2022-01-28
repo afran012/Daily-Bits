@@ -8,13 +8,32 @@ const Login = () => {
   const { datos, handleSubmit, handleInputChange, verifyUser } = useLogin()
   let Navigate = useNavigate();
 
+  let usuario = JSON.parse(sessionStorage.getItem('user'));
+
+  const HandleUser = () => {
+    Navigate('/Preguntas', {
+        replace: true
+    })
+
+  }
+
+  if (usuario) {
+      console.log("usuario");
+      HandleUser()
+  }
+
+
+
   const HandleLogin = async () => {
       let validate = await verifyUser()
       console.log(validate)
     if (validate) {
-        Navigate('/', {
+        Navigate('/Preguntas', {
             replace: true
         })
+    }
+    else{
+        console.log("clave incorrecta")
     }
   }
 
