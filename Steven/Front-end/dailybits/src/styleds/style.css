@@ -1,4 +1,47 @@
-.hola {
-    height: 10px;
-    width: 10px;
+.titulo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5rem;
+  margin: 100px;
+}
+
+.contenedorPreguntas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pregunta {
+  padding: 50px;
+  border: 1px solid white;
+  margin: 50px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.pregunta input {
+  width: 50px;
+}
+
+.pregunta:focus {
+  background: white;
+}
+
+.btnsubmit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btnsubmit button {
+  padding: 20px;
+  border: none;
+  background: rgb(250, 132, 244);
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.btnsubmit button:hover {
+  background: rgba(250, 132, 244, 0.507);
 }

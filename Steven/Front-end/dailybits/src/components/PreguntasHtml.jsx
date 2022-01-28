@@ -1,4 +1,5 @@
 import { urluno } from "../helpers/url";
+import "../styleds/style.css"
 
 import React, { useEffect, useState } from "react";
 import axios from "axios";
@@ -40,44 +41,51 @@ export const PreguntasHTML = () => {
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <h1>{datos[posicion]?.pregunta}</h1>
+                <h1 className="titulo">{datos[posicion]?.pregunta}</h1>
 
-                <label>
-                    <input
-                        type="radio"
-                        name={"respuestas"}
-                        id={"respuesta1"}
-                        value={datos[posicion]?.respuesta1}
-                        onChange={handleChange}
-                    />
-                    {datos[posicion]?.respuesta1}
-                </label>
+                <legend className="contenedorPreguntas">
 
-                <label>
-                    <input
-                        type="radio"
-                        name={"respuestas"}
-                        id={"respuesta2"}
-                        value={datos[posicion]?.respuesta2}
-                        onChange={handleChange}
-                    />
-                    {datos[posicion]?.respuesta2}
-                </label>
+                    <label className="pregunta">
+                        <input
+                            type="radio"
+                            name={"respuestas"}
+                            id={"respuesta1"}
+                            value={datos[posicion]?.respuesta1}
+                            onChange={handleChange}
+                        />
+                        {datos[posicion]?.respuesta1}
+                    </label>
 
-                <label>
-                    <input
-                        type="radio"
-                        name={"respuestas"}
-                        id={"respuesta3"}
-                        value={datos[posicion]?.respuesta3}
-                        onChange={handleChange}
-                    />
-                    {datos[posicion]?.respuesta3}
-                </label>
+                    <label className="pregunta">
+                        <input
+                            type="radio"
+                            name={"respuestas"}
+                            id={"respuesta2"}
+                            value={datos[posicion]?.respuesta2}
+                            onChange={handleChange}
+                        />
+                        {datos[posicion]?.respuesta2}
+                    </label>
 
-                <button type="submit" onClick={() => setPosicion(posicion + 1)}>
-                    Enviar
-                </button>
+                    <label className="pregunta">
+                        <input
+                            type="radio"
+                            name={"respuestas"}
+                            id={"respuesta3"}
+                            value={datos[posicion]?.respuesta3}
+                            onChange={handleChange}
+                        />
+                        {datos[posicion]?.respuesta3}
+                    </label>
+
+                </legend>
+
+                <div className="btnsubmit">
+                    <button type="submit" onClick={() => setPosicion(posicion + 1)}>
+                        Enviar
+                    </button>
+                </div>
+
             </form>
         </div>
     );
