@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { useEffect } from "react";
+import {url as endpoint} from '../helpers/url';
 
 export const useFormulario = () => {
 
     const [datos, setDatos] = useState({
-        nombre: '',
-        email: ''
+        username: '',
+        email: '',
+        password: ''
     })
 
 
@@ -28,11 +30,27 @@ export const useFormulario = () => {
     }
 
 
+    const  agregarDatos = async () => {
+        
+        let url = `${endpoint}Usuarios`
+        console.log(`${endpoint}Usuarios`);
+        console.log(datos);
+        await fetch(url,{
+            method: 'POST',
+            body: JSON.stringify(datos),
+            headers: {
+               'Content-Type': 'application/json; charset=utf-8'
+            }
+        })
+    }
+
+
     return {
         datos,
         useEffect,
         handleSubmit,
-        handleInputChange
+        handleInputChange,
+        agregarDatos
     }
 
 
