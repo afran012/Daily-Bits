@@ -44,7 +44,7 @@ export const useLogin = () => {
         let usuarioVal = usuarios.find(user => user.email === datos.email)
         if (usuarioVal) {
             console.log(usuarioVal.password)
-            if (usuarioVal.password == datos.password) {
+            if (usuarioVal.password === datos.password) {
                 sessionStorage.setItem("user",JSON.stringify(datos));
                 
                 return true
